@@ -1,9 +1,43 @@
 body {
+    /*background-image: url("images/green-title-background.png"); 
+    margin: 0;
+    margin-left: 50%
+    background-repeat: no-repeat;*/
+   
+}
+
+#box{
+    width: 40px;
+    height: 40px;
+    background: url(images/golf-ball.png) no-repeat; 
+    background-size: 100% 100%;
+    margin-left: 50%;
+    margin-top: 10%;
+    user-drag: none; 
+    -moz-user-select: none;
+    -webkit-user-drag: none;
 
 }
 
-img {
-    
+
+#target {
+    background-image: url("images/golf-ball.png");
+    background-repeat: no-repeat;
+    height:50px;
+    width:50px;
+    cursor:pointer;
+    /*position: absolute;
+   /* user-drag: none; 
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    top: 10%;
+    left: 50%;*/
+}
+
+
+p {
+  font-size: 30px;
+  text-align: center;
 }
 
 /*#target {
