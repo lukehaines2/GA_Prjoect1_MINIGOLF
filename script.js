@@ -35,7 +35,9 @@ var r;
 // Ball goes into hole - hidden and restart
 // Shoot ball - On mouseup
 // Ball count
-
+var y = offset[0]
+var x = offset[1]
+//COOREDINATES DEFINED TO THE LEFT
 var y = 407;
 var x = 8;
 // GOLF BALL ROTATE FUNCTION
@@ -50,11 +52,13 @@ var x = 8;
     ball.mousedown(function(e) {
       dragging = true;
       offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
+      $('#box').addClass('arrow');
     })
     //EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
-    
+      $('#box').removeClass('arrow');
+        //Ball travel
         var dx = Math.cos(r) * 100/200;
         var dy = Math.sin(r) * 100/200;
         var password = setInterval(function(){
@@ -63,7 +67,7 @@ var x = 8;
             // console.log(x);
             // console.log(y);
             $("#box").offset({top: y, left: x});
-        if ( Math.abs(x * Math.cos(r)) > 50 ){
+        if ( Math.abs(x * Math.cos(r)) > 100 ){
             clearInterval(password);
         } 
         }, 2)
