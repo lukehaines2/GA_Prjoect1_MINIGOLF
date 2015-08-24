@@ -32,6 +32,9 @@ div #green-background {
   margin-left: 50%
 }*/
 
+#rollBall {
+  position: absolute;
+}
 
 p {
   font-size: 30px;

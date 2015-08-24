@@ -4,6 +4,8 @@ $(document).ready(function(){
 /*********************************************/
 //DECALRE THE VARIABLES
 /*********************************************/
+var ball = $("#box"); //<--- Golf Ball
+var r;
 // var wall1;
 // var wall2
 // var wall3
@@ -16,22 +18,31 @@ $(document).ready(function(){
 /*********************************************/
 //DECALRE THE FUNCTIONS
 /*********************************************/
-// local Main = {}
-// local startButtonListeners = {}
-// local showCredits = {}
-// local hideCredits = {}
-// local showGameView = {}
-// local gameListeners = {}
-// local shoot = {}
-// local onCollision = {}
-// local alert = {}
+// Main = {}
+// startButtonListeners = {}
+// showCredits = {}
+// hideCredits = {}
+// showGameView = {}
+// gameListeners = {}
+// shoot = {}
+// onCollision = {}
+// alert = {}
+// restart game after ball in hole
 
-var ball = $("#box");
+/*********************************************/
+//DECALRE THE EVENT LISTENERS
+/*********************************************/
+// Ball goes into hole - hidden and restart
+// Shoot ball - On mouseup
+// Ball count
+
+
+
 //GOLF BALL ROTATE FUNCTION
 (function() {
     
     var RAD2DEG = 180 / Math.PI;            
-    
+    //Rotate from the middle of the ball
     ball.centerX = ball.offset().left + ball.width()/2;
     ball.centerY =  ball.offset().top + ball.height()/2;
 
@@ -44,73 +55,93 @@ var ball = $("#box");
     $(document).mouseup(function() {
       dragging = false
     })
-    //EVENT LISTENER FOR DIRECTION
+    //EVENT LISTENER: ADD TRAJECTORY GUIDE
+
+    //EVENT LISTENER: DIRECTION
     $(document).mousemove(function(e) {
       if (dragging) { 
         //Recalculating the end position after drag
         var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
-        var r = (offset - newOffset) * RAD2DEG;
-        
+        r = (offset - newOffset) * RAD2DEG;
+        console.log(r);
+        // console.log(newOffset);
         ball.css('-webkit-transform', 'rotate(' + r + 'deg)');
-      }
+      //   r = r * Math.PI / 180;
+      //   console.log('display angle' + r * Math.PI / 180);
+      //   console.log('print' + r);
+      //   var dx = Math.cos(r) * amount;
+      //   var dy = Math.sin(r) * amount;
+      //   x += dx;
+      //   y += dy;
+
+      //   $("#rollBall").click(function(event){
+      // $(this).animate({'margin-left': 50, 'margin-top': 100}, 2000); 
+      // console.log("last r", r);
+    // });
+    //   }
     })
     }());
 
-FUNCTION TO MOVE THE BALL FORWARD
+// var left = 0;
+// $('#rollBall').click(function() {
+//       $(this).animate({
+//         left: '-=100'
+//       }, 5000, function() {
+//         // Animation complete.
+//       });
+//     });
 
-var moveLeft;
-function moveBall() {
-    var ball = $('pushBall');
-    var currentLeft = parseInt(ball.css('left'));
-    var newLeft = currentLeft + 50;
+
+
+//FUNCTION TO MOVE THE BALL FORWARD
+// var walkLeft;
+// function moveBall() {
+//     var ball = $('#rollBall');
+//     var currentLeft = parseInt(ball.css('left'));
+//     var newLeft = currentLeft + 50;
     
-    if (newLeft >= ($(window).width() - parseInt(ball.css('width')) ) ){
-      console.log('hello')
-        clearInterval(walkRight)
-        walkLeft = setInterval(moveballBack, 1000);
-    };
-  ball.css('left', newLeft + 'px')
+//     if (newLeft >= ($(window).width() - parseInt(ball.css('width')) ) ){
+//       console.log('hello')
+//         clearInterval(walkRight)
+//         walkLeft = setInterval(moveBallBack, 1000);
+//     };
+//   ball.css('left', newLeft + 'px')
+//   }
+
+//   var walkRight = setInterval(moveBall, 1500);
+
+var walkLeft;
+  function moveCatBack () {
+    //change the newLeft to - not + 50
+    //repeat the general command from the other fucntion but make it go right to left. 
+    //Call it from the right margin??
+    var cat = $('#rollBall');
+    var currentLeft = parseInt(cat.css('left'));
+    var newLeft = currentLeft - 50;
+    var newHeight = Math.random() * $(window).height();
+   
+    // if (newLeft >= ($(window).width() + parseInt(cat.css('width')) ) ){
+    //   console.log('at the edge')
+    //     clearInterval(walkLeft)
+    //     return
+    cat.css({'left': newLeft, 'top': newHeight});
+
   }
 
-  var walkRight = setInterval(moveBall, 1500);
-}
+  function moveCat () {
+    var cat = $('#rollBall');
+    var currentLeft = parseInt(cat.css('left'));
+    var newLeft = currentLeft + 50;
+    
+    if (newLeft >= ($(window).width() - parseInt(cat.css('width')) ) ){
+      console.log('hello')
+        clearInterval(walkRight)
+        walkLeft = setInterval(moveCatBack, 1000);
+    };
+  cat.css('left', newLeft + 'px')
+  }
 
-
-
-
-
-
-
-
-// //The Golf ball rotate process
-// var dragging = false
-
-// $(function() {
-//     var target = $('#target')
-//     target.mousedown(function() {
-//         dragging = true
-//     })
-//     $(document).mouseup(function() {
-//         dragging = false
-//     })
-//     $(document).mousemove(function(e) {
-//         if (dragging) {
-
-//             var mouse_x = e.pageX;
-//             var mouse_y = e.pageY;
-//             var radians = Math.atan2(mouse_x - 10, mouse_y - 10);
-//             var degree = (radians * (180 / Math.PI) * -1) + 90;
-//             target.css('-moz-transform', 'rotate(' + degree + 'deg)');
-//             target.css('-moz-transform-origin', '50% 50%');
-//             target.css('-webkit-transform', 'rotate(' + degree + 'deg)');
-//             target.css('-webkit-transform-origin', '50% 50%');
-//             target.css('-o-transform', 'rotate(' + degree + 'deg)');
-//             target.css('-o-transform-origin', '50% 50%');
-//             target.css('-ms-transform', 'rotate(' + degree + 'deg)');
-//             target.css('-ms-transform-origin', '50% 50%');
-//         }
-//     })
-// })
+  var walkRight = setInterval(moveCat, 1500);
 
 
 
