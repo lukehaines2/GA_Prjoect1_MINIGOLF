@@ -1,33 +1,83 @@
 $(document).ready(function(){
-  console.log('ready')
+  console.log('ready');
 
+/*********************************************/
+//DECALRE THE VARIABLES
+/*********************************************/
+// var wall1;
+// var wall2
+// var wall3
+// var wall4
+// var wall5
+// var wall6
+// var TrajectoryLine //Transparent white line that indicates shooting direction and force
+// var scores // Stores the scoring in alert image
 
+/*********************************************/
+//DECALRE THE FUNCTIONS
+/*********************************************/
+// local Main = {}
+// local startButtonListeners = {}
+// local showCredits = {}
+// local hideCredits = {}
+// local showGameView = {}
+// local gameListeners = {}
+// local shoot = {}
+// local onCollision = {}
+// local alert = {}
+
+var ball = $("#box");
 //GOLF BALL ROTATE FUNCTION
 (function() {
     
     var RAD2DEG = 180 / Math.PI;            
-    var dial = $("#box");
-    dial.centerX = dial.offset().left + dial.width()/2;
-    dial.centerY =  dial.offset().top + dial.height()/2;
     
+    ball.centerX = ball.offset().left + ball.width()/2;
+    ball.centerY =  ball.offset().top + ball.height()/2;
+
     var offset, dragging=false;
-    dial.mousedown(function(e) {
+    ball.mousedown(function(e) {
       dragging = true;
-      offset = Math.atan2(dial.centerY - e.pageY, e.pageX - dial.centerX);
+      offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
     })
+    //EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
     })
+    //EVENT LISTENER FOR DIRECTION
     $(document).mousemove(function(e) {
       if (dragging) { 
-        
-        var newOffset = Math.atan2(dial.centerY - e.pageY, e.pageX - dial.centerX);
+        //Recalculating the end position after drag
+        var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
         var r = (offset - newOffset) * RAD2DEG;
         
-        dial.css('-webkit-transform', 'rotate(' + r + 'deg)');
+        ball.css('-webkit-transform', 'rotate(' + r + 'deg)');
       }
     })
     }());
+
+FUNCTION TO MOVE THE BALL FORWARD
+
+var moveLeft;
+function moveBall() {
+    var ball = $('pushBall');
+    var currentLeft = parseInt(ball.css('left'));
+    var newLeft = currentLeft + 50;
+    
+    if (newLeft >= ($(window).width() - parseInt(ball.css('width')) ) ){
+      console.log('hello')
+        clearInterval(walkRight)
+        walkLeft = setInterval(moveballBack, 1000);
+    };
+  ball.css('left', newLeft + 'px')
+  }
+
+  var walkRight = setInterval(moveBall, 1500);
+}
+
+
+
+
 
 
 
@@ -61,13 +111,6 @@ $(document).ready(function(){
 //         }
 //     })
 // })
-
-
-
-
-
-
-
 
 
 
