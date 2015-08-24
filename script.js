@@ -36,8 +36,8 @@ var r;
 // Shoot ball - On mouseup
 // Ball count
 
-var y = 50;
-var x = 50;
+var y = 407;
+var x = 8;
 // GOLF BALL ROTATE FUNCTION
 (function() {
     
@@ -54,6 +54,20 @@ var x = 50;
     //EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
+    
+        var dx = Math.cos(r) * 100/200;
+        var dy = Math.sin(r) * 100/200;
+        var password = setInterval(function(){
+            x += dx;
+            y += dy;
+            // console.log(x);
+            // console.log(y);
+            $("#box").offset({top: y, left: x});
+        if ( Math.abs(x * Math.cos(r)) > 50 ){
+            clearInterval(password);
+        } 
+        }, 2)
+
     })
     //EVENT LISTENER: ADD TRAJECTORY GUIDE
 
@@ -66,35 +80,23 @@ var x = 50;
         console.log(r);
         // console.log(newOffset);
         ball.css('-webkit-transform', 'rotate(' + r + 'deg)');
-        r = r * Math.PI / 180;
-        console.log('display angle' + r * Math.PI / 180);
-        console.log('print' + r);
-        var dx = Math.cos(r) * 50;
-        var dy = Math.sin(r) * 50;
-        x += dx;
-        y += dy;
-        console.log(dx);
-        console.log(dy);
+       
+        // r = r * Math.PI / 180;
+        // console.log('display angle' + r * Math.PI / 180);
+        // console.log('print' + r);
 
-        $("#rollBall").click(function(event){
-      $(this).animate({'margin-left': + dx , 'margin-right': + dy}, 2000); 
-      // console.log("last r", r);
-    });
+
+        
+    // $("#box").click(function(event){
+    //   $(this).animate({'margin-left': + dx , 'margin-top': + dy }, 2000); 
+    //   // console.log("last r", r);
+    // });
+      
       }
     })
     }());
 
-// var left = 0;
-// $('#rollBall').click(function() {
-//       $(this).animate({
-//         left: '-=100'
-//       }, 5000, function() {
-//         // Animation complete.
-//       });
-//     });
-
-
-
+  
 //FUNCTION TO MOVE THE BALL FORWARD
 // var walkLeft;
 // function moveBall() {
@@ -111,39 +113,6 @@ var x = 50;
 //   }
 
 //   var walkRight = setInterval(moveBall, 1500);
-
-var walkLeft;
-  function moveCatBack () {
-    //change the newLeft to - not + 50
-    //repeat the general command from the other fucntion but make it go right to left. 
-    //Call it from the right margin??
-    var cat = $('#rollBall');
-    var currentLeft = parseInt(cat.css('left'));
-    var newLeft = currentLeft - 50;
-    var newHeight = Math.random() * $(window).height();
-   
-    // if (newLeft >= ($(window).width() + parseInt(cat.css('width')) ) ){
-    //   console.log('at the edge')
-    //     clearInterval(walkLeft)
-    //     return
-    cat.css({'left': newLeft, 'top': newHeight});
-
-  }
-
-  function moveCat () {
-    var cat = $('#rollBall');
-    var currentLeft = parseInt(cat.css('left'));
-    var newLeft = currentLeft + 50;
-    
-    if (newLeft >= ($(window).width() - parseInt(cat.css('width')) ) ){
-      console.log('hello')
-        clearInterval(walkRight)
-        walkLeft = setInterval(moveCatBack, 1000);
-    };
-  cat.css('left', newLeft + 'px')
-  }
-
-  var walkRight = setInterval(moveCat, 1500);
 
 
 
