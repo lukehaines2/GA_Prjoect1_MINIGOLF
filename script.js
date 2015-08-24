@@ -36,9 +36,9 @@ var r;
 // Shoot ball - On mouseup
 // Ball count
 
-
-
-//GOLF BALL ROTATE FUNCTION
+var y = 50;
+var x = 50;
+// GOLF BALL ROTATE FUNCTION
 (function() {
     
     var RAD2DEG = 180 / Math.PI;            
@@ -66,19 +66,21 @@ var r;
         console.log(r);
         // console.log(newOffset);
         ball.css('-webkit-transform', 'rotate(' + r + 'deg)');
-      //   r = r * Math.PI / 180;
-      //   console.log('display angle' + r * Math.PI / 180);
-      //   console.log('print' + r);
-      //   var dx = Math.cos(r) * amount;
-      //   var dy = Math.sin(r) * amount;
-      //   x += dx;
-      //   y += dy;
+        r = r * Math.PI / 180;
+        console.log('display angle' + r * Math.PI / 180);
+        console.log('print' + r);
+        var dx = Math.cos(r) * 50;
+        var dy = Math.sin(r) * 50;
+        x += dx;
+        y += dy;
+        console.log(dx);
+        console.log(dy);
 
-      //   $("#rollBall").click(function(event){
-      // $(this).animate({'margin-left': 50, 'margin-top': 100}, 2000); 
+        $("#rollBall").click(function(event){
+      $(this).animate({'margin-left': + dx , 'margin-right': + dy}, 2000); 
       // console.log("last r", r);
-    // });
-    //   }
+    });
+      }
     })
     }());
 
