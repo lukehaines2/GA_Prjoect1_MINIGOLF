@@ -2,6 +2,28 @@ $(document).ready(function(){
   console.log('ready');
 
 /*********************************************/
+//DECALRE THE FUNCTIONS
+/*********************************************/
+// Main = {}
+// startButtonListeners = {}
+// showCredits = {}
+// hideCredits = {}
+// showGameView = {}
+// gameListeners = {}
+// shoot = {}
+// onCollision = {}
+// alert {}
+// restart game after ball in hole
+
+
+/*********************************************/
+//DECALRE THE EVENT LISTENERS
+/*********************************************/
+// Ball goes into hole - hidden and restart
+// Shot count = on each *mouseup*
+
+
+/*********************************************/
 //DECALRE THE VARIABLES
 /*********************************************/
 var ball = $("#box"); //<--- Golf Ball
@@ -15,26 +37,7 @@ var r;
 // var TrajectoryLine //Transparent white line that indicates shooting direction and force
 // var scores // Stores the scoring in alert image
 
-/*********************************************/
-//DECALRE THE FUNCTIONS
-/*********************************************/
-// Main = {}
-// startButtonListeners = {}
-// showCredits = {}
-// hideCredits = {}
-// showGameView = {}
-// gameListeners = {}
-// shoot = {}
-// onCollision = {}
-// alert = {}
-// restart game after ball in hole
 
-/*********************************************/
-//DECALRE THE EVENT LISTENERS
-/*********************************************/
-// Ball goes into hole - hidden and restart
-// Shoot ball - On mouseup
-// Ball count
 var y = offset[0]
 var x = offset[1]
 //COOREDINATES DEFINED TO THE LEFT
@@ -50,10 +53,11 @@ var x = 8;
 
     var offset, dragging=false;
     ball.mousedown(function(e) {
-      dragging = true;
-      offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
-      $('#box').addClass('arrow');
+    dragging = true;
+    offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
+    $('#box').addClass('arrow');
     })
+
     //EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
@@ -67,11 +71,10 @@ var x = 8;
             // console.log(x);
             // console.log(y);
             $("#box").offset({top: y, left: x});
-        if ( Math.abs(x * Math.cos(r)) > 100 ){
+            if ( Math.abs(x * Math.cos(r)) => 100 ){
             clearInterval(password);
-        } 
+            } 
         }, 2)
-
     })
     //EVENT LISTENER: ADD TRAJECTORY GUIDE
 
