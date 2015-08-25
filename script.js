@@ -4,13 +4,6 @@ $(document).ready(function(){
 /*********************************************/
 //DECALRE THE FUNCTIONS
 /*********************************************/
-// Main = {}
-// startButtonListeners = {}
-// showCredits = {}
-// hideCredits = {}
-// showGameView = {}
-// gameListeners = {}
-// shoot = {}
 // onCollision = {}
 // alert {}
 // restart game after ball in hole
@@ -36,13 +29,13 @@ var r;
 // var wall6
 // var TrajectoryLine //Transparent white line that indicates shooting direction and force
 // var scores // Stores the scoring in alert image
-
-
+var string = offset(' ')
+var offsetArray[offset];
 var y = offset[0]
 var x = offset[1]
 //COOREDINATES DEFINED TO THE LEFT
-var y = 407;
-var x = 8;
+// var y = 407;
+// var x = 8;
 // GOLF BALL ROTATE FUNCTION
 (function() {
     
@@ -61,17 +54,17 @@ var x = 8;
     //EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
-      $('#box').removeClass('arrow');
+      // $('#box').removeClass('arrow');
         //Ball travel
-        var dx = Math.cos(r) * 100/200;
-        var dy = Math.sin(r) * 100/200;
+        var dx = Math.cos(r) * 100/200; //<--
+        var dy = Math.sin(r) * 100/200; //<--0.5 per 10ms
         var password = setInterval(function(){
             x += dx;
             y += dy;
             // console.log(x);
             // console.log(y);
             $("#box").offset({top: y, left: x});
-            if ( Math.abs(x * Math.cos(r)) => 100 ){
+            if ( Math.abs(x * Math.cos(r)) > 100 ){
             clearInterval(password);
             } 
         }, 2)
