@@ -7,7 +7,11 @@ $(document).ready(function(){
 // onCollision = {}
 // alert {}
 // restart game after ball in hole
-
+//CLICK COUNTER ON MOUSE-UP - called within ball
+function clickCounter() {
+    counter++;
+    $("#theCount").text(counter);
+};
 
 /*********************************************/
 //DECALRE THE EVENT LISTENERS
@@ -21,6 +25,7 @@ $(document).ready(function(){
 /*********************************************/
 var ball = $("#box"); //<--- Golf Ball
 var r;
+var counter = 0;
 // var wall1;
 // var wall2
 // var wall3
@@ -29,13 +34,15 @@ var r;
 // var wall6
 // var TrajectoryLine //Transparent white line that indicates shooting direction and force
 // var scores // Stores the scoring in alert image
-var string = offset(' ')
-var offsetArray[offset];
-var y = offset[0]
-var x = offset[1]
+// var offsetArray = offsetArray.push(offset);
+// var offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);// var offsetArray
+// var x = offset[0]
+// var y = offset[1]
+// console.log(offsetArray);
+
 //COOREDINATES DEFINED TO THE LEFT
-// var y = 407;
-// var x = 8;
+var y = 407;
+var x = 8;
 // GOLF BALL ROTATE FUNCTION
 (function() {
     
@@ -48,8 +55,9 @@ var x = offset[1]
     ball.mousedown(function(e) {
     dragging = true;
     offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
+    //EVENT LISTENER: ADD TRAJECTORY GUIDE
     $('#box').addClass('arrow');
-    })
+})
 
     //EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
@@ -61,17 +69,17 @@ var x = offset[1]
         var password = setInterval(function(){
             x += dx;
             y += dy;
-            // console.log(x);
-            // console.log(y);
             $("#box").offset({top: y, left: x});
             if ( Math.abs(x * Math.cos(r)) > 100 ){
             clearInterval(password);
             } 
         }, 2)
-    })
-    //EVENT LISTENER: ADD TRAJECTORY GUIDE
 
-    //EVENT LISTENER: DIRECTION
+        clickCounter()
+    })
+    
+
+    //EVENT LISTENER: DIRECTION OF ROTATE
     $(document).mousemove(function(e) {
       if (dragging) { 
         //Recalculating the end position after drag
@@ -96,7 +104,11 @@ var x = offset[1]
     })
     }());
 
-  
+
+    
+
+
+
 //FUNCTION TO MOVE THE BALL FORWARD
 // var walkLeft;
 // function moveBall() {
