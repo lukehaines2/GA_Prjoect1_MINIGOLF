@@ -37,6 +37,9 @@ body {
 div #green-background {
   z-index: 1;
   position: absolute;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #rollBall {
@@ -53,12 +56,14 @@ h1 {
 }
 
 
-p {
+.text {
+  display: inline-block;
   font-size: 20px;
   text-align: center;
   color: white;
   font-family: 'Permanent Marker', cursive;
 }
+
 
 .arrow {
 /*  -moz-user-select: none;

@@ -68,14 +68,26 @@ var x = $('#box').offset().left;
         //Ball travel
         var dx = Math.cos(r) * 100/200; //<--
         var dy = Math.sin(r) * 100/200; //<--0.5 per 10ms
-        var password = setInterval(function(){
+        //var xn = x0 + v * t * cos(theta)
+        // var xn = x + 100 * 100/200 * Math.cos(r)
+        // var yn = y + 100 * 100/200 * Math.sin(r)
+        var orgx = x;
+        var orgy = y;
+        var movement = setInterval(function(){
+            $("#box").offset({top: y, left: x});
+            
             x += dx;
             y += dy;
-            $("#box").offset({top: y, left: x});
-            if ( Math.abs(x * Math.cos(r)) > 400 ){
-            clearInterval(password);
-            } 
-        }, 2)
+            if (Math.cos(r) !== 0) {
+                if ( Math.abs((x - orgx) * Math.cos(r)) > 200 ){
+                clearInterval(movement);
+                } 
+            }
+            else if (Math.abs(y - orgy) > 200) {
+                clearInterval(movement);
+            }
+            
+        }, 1)
         $('#box').css('background-image', 'url(images/golf-ball.png)');
         clickCounter()
     })
@@ -86,21 +98,11 @@ var x = $('#box').offset().left;
       if (dragging) { 
         //Recalculating the end position after drag
         var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
-        r = (offset - newOffset) * RAD2DEG;
+        // r = Prjected angle
+        r = (offset - newOffset); //<---Deleted Degree Conversion
         console.log(r);
         // console.log(newOffset);
-        ball.css('-webkit-transform', 'rotate(' + r + 'deg)');
-       
-        // r = r * Math.PI / 180;
-        // console.log('display angle' + r * Math.PI / 180);
-        // console.log('print' + r);
-
-
-        
-    // $("#box").click(function(event){
-    //   $(this).animate({'margin-left': + dx , 'margin-top': + dy }, 2000); 
-    //   // console.log("last r", r);
-    // });
+        ball.css('-webkit-transform', 'rotate(' + r + 'rad)');
       
       }
     })
