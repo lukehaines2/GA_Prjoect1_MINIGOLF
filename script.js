@@ -7,17 +7,17 @@ $(document).ready(function(){
 // onCollision = {}
 // alert {}
 // restart game after ball in hole
+
 //CLICK COUNTER ON MOUSE-UP - called within ball
 function clickCounter() {
     counter++;
     $("#theCount").text(counter);
 };
-
+console.log(clickCounter);
 /*********************************************/
 //DECALRE THE EVENT LISTENERS
 /*********************************************/
 // Ball goes into hole - hidden and restart
-// Shot count = on each *mouseup*
 
 
 /*********************************************/
@@ -41,8 +41,8 @@ var counter = 0;
 // console.log(offsetArray);
 
 //COOREDINATES DEFINED TO THE LEFT
-var y = 407;
-var x = 8;
+var y = $('#box').offset().top;
+var x = $('#box').offset().left;
 // GOLF BALL ROTATE FUNCTION
 (function() {
     
@@ -55,8 +55,10 @@ var x = 8;
     ball.mousedown(function(e) {
     dragging = true;
     offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
+    console.log('mousedown');
     //EVENT LISTENER: ADD TRAJECTORY GUIDE
-    $('#box').addClass('arrow');
+    // $('#box').addClass('arrow');
+    $('#box').css('background-image', 'url(images/arrow2.png)');
 })
 
     //EVENT LISTENER FOR MOUSEUP
@@ -70,11 +72,11 @@ var x = 8;
             x += dx;
             y += dy;
             $("#box").offset({top: y, left: x});
-            if ( Math.abs(x * Math.cos(r)) > 100 ){
+            if ( Math.abs(x * Math.cos(r)) > 400 ){
             clearInterval(password);
             } 
         }, 2)
-
+        $('#box').css('background-image', 'url(images/golf-ball.png)');
         clickCounter()
     })
     

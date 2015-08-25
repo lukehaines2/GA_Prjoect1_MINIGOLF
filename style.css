@@ -2,14 +2,18 @@ body {
     background-image: url("images/green-title-background.png");
     /*background-position: center; 
     background-repeat: no-repeat;*/
+    user-select: none;
 }
 
 #box{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background: url(images/golf-ball.png) no-repeat; 
     background-size: 100% 100%;
     position: absolute;
+    z-index: 2;
+    top: 75px;
+    left: 270px;
     /*margin-left: 50%;
     margin-top: 10%;*/
     /*display: inline-block;*/
@@ -19,6 +23,7 @@ body {
 }
 
 .Main-container {
+  position: relative;
   max-width: 850px;
   display: inline-block;
   margin-left: 25%;
@@ -28,10 +33,11 @@ body {
   -webkit-user-select: none;
   user-select: none;
 }
-/*
+
 div #green-background {
-  margin-left: 50%
-}*/
+  z-index: 1;
+  position: absolute;
+}
 
 #rollBall {
   position: absolute;
@@ -39,20 +45,34 @@ div #green-background {
   height: 40px;
 }
 
-p {
+h1 {
   font-size: 30px;
   text-align: center;
-  font-family: helvetica;
   color: white;
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+p {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .arrow {
-  -moz-user-select: none;
+/*  -moz-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
+  user-select: none;*/
+  
+  /*border: 1px solid red;*/
 }
 
 #theCount {
-  margin-left: 75%;
+  margin-left: 85%;
+  margin-top: 32%;
   color: white;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
+  user-select: none;
 }
