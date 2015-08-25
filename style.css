@@ -12,8 +12,9 @@ body {
     background-size: 100% 100%;
     position: absolute;
     z-index: 2;
-    top: 155px;
-    left: 720px;
+    top: 160px;
+    left: 740px;
+
     /*margin-left: 50%;
     margin-top: 10%;*/
     /*display: inline-block;*/
@@ -46,6 +47,9 @@ div #green-background {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  text-align: center;
+  margin-left: 35%;
+  margin-right: 25%;
 }
 
 h1 {
@@ -72,17 +76,17 @@ h1 {
 }
 
 #container {
-    position: relative;    
+    /*position: relative;*/ 
+    border: 2px solid red;  
 }
 
-#example {
+div #example {
    position: absolute;
-   top: 10px;
-   left: 10px; 
-    
-   padding: 5px;
-   background-color: white;
+   top: 315px;
+   left: 535px; 
+   padding: 1px;
    border: 2px solid red;
+   user-select: none;
 }
 
 footer {

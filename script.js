@@ -2,7 +2,7 @@ $(document).ready(function(){
   console.log('ready');
 
 /*********************************************/
-//DECALRE THE FUNCTIONS
+//FUNCTIONS
 /*********************************************/
 // onCollision = {}
 // alert {}
@@ -10,10 +10,10 @@ $(document).ready(function(){
 
 //CLICK COUNTER ON MOUSE-UP - called within ball
 function clickCounter() {
+    $('#box').mouseup()
     counter++;
     $("#theCount").text('Shots: ' + counter);
 };
-console.log(clickCounter);
 /*********************************************/
 //DECALRE THE EVENT LISTENERS
 /*********************************************/
@@ -26,6 +26,7 @@ console.log(clickCounter);
 var ball = $("#box"); //<--- Golf Ball
 var r;
 var counter = 0;
+var hole = $('#example');
 // var wall1;
 // var wall2
 // var wall3
@@ -33,7 +34,7 @@ var counter = 0;
 // var wall5
 // var wall6
 
-//COOREDINATES DEFINED TO THE LEFT
+//COORDINATES DEFINED TO THE LEFT
 var y = $('#box').offset().top;
 var x = $('#box').offset().left;
 // GOLF BALL ROTATE FUNCTION
@@ -82,7 +83,8 @@ var x = $('#box').offset().left;
             
         }, 1)
         $('#box').css('background-image', 'url(images/golf-ball.png)');
-        clickCounter()
+        
+    
     })
     
 
@@ -93,54 +95,54 @@ var x = $('#box').offset().left;
         var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
         // r = Prjected angle
         r = (offset - newOffset); //<---Deleted Degree Conversion
-        console.log(r);
-        // console.log(newOffset);
+
         ball.css('-webkit-transform', 'rotate(' + r + 'rad)');
-      
+        
       }
     })
     }());
 
 
-    //COLLISON FUNCTIONS FOR HOLE
-    function collidesWith (element1, element2) {
-    var Element1 = ball;
-    var Element2;
+//     //COLLISON FUNCTIONS FOR HOLE
+//     function collidesWith (element1, element2) {
+//     var Element1 = ball;
+//     var Element2 = hole;
 
-    Element1.top = $(element1).offset().top;
-    Element1.left = $(element1).offset().left;
-    Element1.right = Number($(element1).offset().left) + Number($(element1).width());
-    Element1.bottom = Number($(element1).offset().top) + Number($(element1).height());
+//     Element1.top = $(element1).offset().top;
+//     Element1.left = $(element1).offset().left;
+//     Element1.right = Number($(element1).offset().left) + Number($(element1).width());
+//     Element1.bottom = Number($(element1).offset().top) + Number($(element1).height());
 
-    Element2.top = $(element2).offset().top;
-    Element2.left = $(element2).offset().left;
-    Element2.right = Number($(element2).offset().left) + Number($(element2).width());
-    Element2.bottom = Number($(element2).offset().top) + Number($(element2).height());
+//     Element2.top = $(element2).offset().top;
+//     Element2.left = $(element2).offset().left;
+//     Element2.right = Number($(element2).offset().left) + Number($(element2).width());
+//     Element2.bottom = Number($(element2).offset().top) + Number($(element2).height());
 
-    if (Element1.right > Element2.left && Element1.left < Element2.right && Element1.top < Element2.bottom && Element1.bottom > Element2.top) {
-        // Do your stuff here
-    }
+//     if (Element1.right > Element2.left && Element1.left < Element2.right && Element1.top < Element2.bottom && Element1.bottom > Element2.top) {
+        
+//         $('#box').css("background-image","none");
+//     }
+// };
+
+
+// var colliders_selector = $("#box");
+// var obstacles_selector = $("#example");
+// var hits = $(colliders_selector).collision(obstacles_selector);
+// console.log($(colliders_selector).collision(obstacles_selector));
+
+
+//  if ball hits coordinates offsetx && offsety {
+//     then change background. plus display alert!
+//     now its player 2's turn.
+//  } 
+//  else if {}
+function collisionHole() {
+if (x > 300) {
+    $('#box').css("background-image","none")
+    // .offset.top <= 100) {
+    return console.log(x)
 }
-
-
-
-//FUNCTION TO MOVE THE BALL FORWARD
-// var walkLeft;
-// function moveBall() {
-//     var ball = $('#rollBall');
-//     var currentLeft = parseInt(ball.css('left'));
-//     var newLeft = currentLeft + 50;
-    
-//     if (newLeft >= ($(window).width() - parseInt(ball.css('width')) ) ){
-//       console.log('hello')
-//         clearInterval(walkRight)
-//         walkLeft = setInterval(moveBallBack, 1000);
-//     };
-//   ball.css('left', newLeft + 'px')
-//   }
-
-//   var walkRight = setInterval(moveBall, 1500);
-
+};
 
 
 }); //Closing the Doc Ready
