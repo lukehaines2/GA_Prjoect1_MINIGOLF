@@ -42,19 +42,12 @@ div #green-background {
   user-select: none;
 }
 
-#rollBall {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
-
 h1 {
   font-size: 30px;
   text-align: center;
   color: white;
   font-family: 'Permanent Marker', cursive;
 }
-
 
 .text {
   display: inline-block;
@@ -64,18 +57,9 @@ h1 {
   font-family: 'Permanent Marker', cursive;
 }
 
-
-.arrow {
-/*  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;*/
-  
-  /*border: 1px solid red;*/
-}
-
 #theCount {
-  margin-left: 85%;
-  margin-top: 32%;
+  margin-left: 65%;
+  margin-top: 12%;
   color: white;
   font-family: 'Permanent Marker', cursive;
   font-size: 30px;
