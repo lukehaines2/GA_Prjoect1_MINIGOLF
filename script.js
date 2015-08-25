@@ -11,7 +11,7 @@ $(document).ready(function(){
 //CLICK COUNTER ON MOUSE-UP - called within ball
 function clickCounter() {
     counter++;
-    $("#theCount").text(counter);
+    $("#theCount").text('Shots: ' + counter);
 };
 console.log(clickCounter);
 /*********************************************/
@@ -32,13 +32,6 @@ var counter = 0;
 // var wall4
 // var wall5
 // var wall6
-// var TrajectoryLine //Transparent white line that indicates shooting direction and force
-// var scores // Stores the scoring in alert image
-// var offsetArray = offsetArray.push(offset);
-// var offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);// var offsetArray
-// var x = offset[0]
-// var y = offset[1]
-// console.log(offsetArray);
 
 //COOREDINATES DEFINED TO THE LEFT
 var y = $('#box').offset().top;
@@ -109,7 +102,25 @@ var x = $('#box').offset().left;
     }());
 
 
-    
+    //COLLISON FUNCTIONS FOR HOLE
+    function collidesWith (element1, element2) {
+    var Element1 = ball;
+    var Element2;
+
+    Element1.top = $(element1).offset().top;
+    Element1.left = $(element1).offset().left;
+    Element1.right = Number($(element1).offset().left) + Number($(element1).width());
+    Element1.bottom = Number($(element1).offset().top) + Number($(element1).height());
+
+    Element2.top = $(element2).offset().top;
+    Element2.left = $(element2).offset().left;
+    Element2.right = Number($(element2).offset().left) + Number($(element2).width());
+    Element2.bottom = Number($(element2).offset().top) + Number($(element2).height());
+
+    if (Element1.right > Element2.left && Element1.left < Element2.right && Element1.top < Element2.bottom && Element1.bottom > Element2.top) {
+        // Do your stuff here
+    }
+}
 
 
 

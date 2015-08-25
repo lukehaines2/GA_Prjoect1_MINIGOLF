@@ -12,8 +12,8 @@ body {
     background-size: 100% 100%;
     position: absolute;
     z-index: 2;
-    top: 75px;
-    left: 270px;
+    top: 155px;
+    left: 720px;
     /*margin-left: 50%;
     margin-top: 10%;*/
     /*display: inline-block;*/
@@ -23,18 +23,24 @@ body {
 }
 
 .Main-container {
-  position: relative;
-  max-width: 850px;
-  display: inline-block;
-  margin-left: 25%;
-  margin-right: 25%;
+  text-align: center;
+  /*margin: 0 auto;*/
+  /*position: relative;*/
+  width: 100%;
+  /*display: inline-block;*/
+  margin-left: -15%;
+  /*margin-right: 25%;*/
   /*border: 1px solid red;*/
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
 
+
 div #green-background {
+  /*border: 1px solid red;*/
+  /*text-align: center;*/
+  /*margin: 0 25% 0 25%;*/
   z-index: 1;
   position: absolute;
   -moz-user-select: none;
@@ -58,10 +64,28 @@ h1 {
 }
 
 #theCount {
-  margin-left: 65%;
-  margin-top: 12%;
+  
   color: white;
   font-family: 'Permanent Marker', cursive;
   font-size: 30px;
   user-select: none;
+}
+
+#container {
+    position: relative;    
+}
+
+#example {
+   position: absolute;
+   top: 10px;
+   left: 10px; 
+    
+   padding: 5px;
+   background-color: white;
+   border: 2px solid red;
+}
+
+footer {
+  margin-top: 320px;
+  text-align: center;
 }
