@@ -31,9 +31,6 @@ body {
 
 
 div #green-background {
-  /*border: 1px solid red;*/
-  /*text-align: center;*/
-  /*margin: 0 25% 0 25%;*/
   z-index: 1;
   position: absolute;
   -moz-user-select: none;
@@ -81,10 +78,13 @@ h1 {
 
 #holeDiv {
    position: absolute;
-   top: 315px;
-   left: 535px; 
+   top: 314px;
+   left: 530px; 
    padding: 1px;
-   border: 2px solid red;
+   /*border: 2px solid red;
+   z-index: 10;*/
+   width: 13px;
+   height: 13px;
    user-select: none;
    -moz-user-select: none;
   -webkit-user-select: none;
@@ -105,4 +105,20 @@ footer {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+
+#instructions {
+  left: 70%;
+    position: absolute;
+    color: white;
+    top: 30%;
+    font-family: 'Sansita One', cursive;
+} 
+
+#powWeak {
+
+}
+
+#powStrong {
+
 }

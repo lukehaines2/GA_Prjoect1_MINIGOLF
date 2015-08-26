@@ -1,3 +1,8 @@
+//*********************************************//
+              // Luke Haines // 
+//*********************************************//                
+
+
 $(document).ready(function(){
   console.log('ready');
 
@@ -16,23 +21,32 @@ function clickCounter() {
     $("#theCount").text('Shots : ' + counter);
 };
 
+
+// EVENT LISTENERS: for Buttons
+// if ($('#powStrong').click(event1, event2)) {
+//     p = powStrong;
+// }
+// else if ($('#powWeak').click(event1, )
+
+
 /*********************************************/
         //DECALRE THE GLOBAL VARIABLES//
 /*********************************************/
 var ball = $("#box"); //<--- Golf Ball
 var r;
-var counter = -1;
+var counter = 0;
 var hole = $('#example');
 var intro = $('#introScreen');
 var powStrong = 250;
 var powMed = 150;
 var powWeak = 50;
-
 //COORDINATES DEFINED TO THE LEFT
 var y = $('#box').offset().top;
 var x = $('#box').offset().left;
+
+
 // GOLF BALL ROTATE FUNCTION
-(function() {
+function playItAll() {
     
     var RAD2DEG = 180 / Math.PI;            
     //Rotate from the middle of the ball
@@ -51,7 +65,7 @@ var x = $('#box').offset().left;
 
     // EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
-      dragging = false
+      dragging = false;
       
         // BALL TRAVEL - HECTIC MATHS!!
         var dx = Math.cos(r) * 100/200; //<--
@@ -65,6 +79,14 @@ var x = $('#box').offset().left;
             
             x += dx;
             y += dy;
+
+            var winning = isInTheHole(y,x);
+            console.log('win?', !!winning)
+            if (!!winning) {
+                alert('YOU WON MATE!!')
+                clearInterval(movement);
+            }
+
             if (Math.cos(r) !== 0) {
                 if ( Math.abs((x - orgX) * Math.cos(r)) > 200 ){
                 clearInterval(movement);
@@ -93,35 +115,22 @@ var x = $('#box').offset().left;
             ball.css('-webkit-transform', 'rotate(' + r + 'rad)');      
           }
     })
-}());
+};
+
+playItAll();
 
 
-// var colliders_selector = $("#box");
-// var obstacles_selector = $("#example");
-// var hits = $(colliders_selector).collision(obstacles_selector);
-// console.log($(colliders_selector).collision(obstacles_selector));
 
-
-//  if ball hits coordinates offsetx && offsety {
-//     then change background. plus display alert!
-//     now its player 2's turn.
-//  } 
-//  else if {}
-
-// function collisionHole() {
- if (clickCounter(2) && ($("#box").offset({top: 315, left: 535}))) {
-    alert('YOU WON MATE!!!!!!!!!!')
- }; 
-
-// if($('#box').css('left') === '468px') {
-//     (x > 300) {
-
-
-//     $('#box').css("background-image","none")
-//     // .offset.top <= 100) {
-    
-//     }
-// };
+// FUNCTION: IF BALL HITS HOLE
+function isInTheHole(top, left) {
+    // need top 314 + width (13)
+    // left 530 + 13 (height)
+    console.log('top', top, 'left', left);
+    var topPos = (top >=300 && top <= 330);
+    var leftPos = (left >= 510 && left <= 553);
+    console.log(topPos, leftPos);
+    return topPos && leftPos;
+}
 
 
 }); // <--- Closing the Doc Ready
