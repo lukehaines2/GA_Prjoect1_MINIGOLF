@@ -1,5 +1,6 @@
 //*********************************************//
               // Luke Haines // 
+                // WDI 15 //
 //*********************************************//                
 
 
@@ -21,6 +22,16 @@ function clickCounter() {
     $("#theCount").text('Shots : ' + counter);
 };
 
+// FUNCTION: IF BALL HITS HOLE
+function isInTheHole(top, left) {
+    // need top 314 + width (13)
+    // left 530 + 13 (height)
+    console.log('top', top, 'left', left);
+    var topPos = (top >=300 && top <= 330);
+    var leftPos = (left >= 510 && left <= 553);
+    console.log(topPos, leftPos);
+    return topPos && leftPos;
+}
 
 // EVENT LISTENERS: for Buttons
 // if ($('#powStrong').click(event1, event2)) {
@@ -121,16 +132,7 @@ playItAll();
 
 
 
-// FUNCTION: IF BALL HITS HOLE
-function isInTheHole(top, left) {
-    // need top 314 + width (13)
-    // left 530 + 13 (height)
-    console.log('top', top, 'left', left);
-    var topPos = (top >=300 && top <= 330);
-    var leftPos = (left >= 510 && left <= 553);
-    console.log(topPos, leftPos);
-    return topPos && leftPos;
-}
+
 
 
 }); // <--- Closing the Doc Ready

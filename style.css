@@ -99,19 +99,19 @@ footer {
   cursor: pointer;
   position: absolute;
   z-index: 3;
-  left: 23%;
+  left: 18%;
   top: 13%;
-  width: 55%;
+  width: 62%;
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
 
 #instructions {
-  left: 70%;
+  left: 67%;
     position: absolute;
     color: white;
-    top: 30%;
+    top: 18%;
     font-family: 'Sansita One', cursive;
 } 
 
