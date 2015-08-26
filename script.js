@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 //Displays the intro with slideup onclick
 $('#introScreen').ready(function(){
-        intro.delay(5000).slideUp('slow');
+    intro.delay(5000).slideUp('slow');
 });
 
 //CLICK COUNTER ON MOUSE-UP - called within ball
@@ -45,51 +45,51 @@ var x = $('#box').offset().left;
 
     // EVENT LISTENER: ADD TRAJECTORY GUIDE
     $('#box').css('background-image', 'url(images/arrow2.png)');
-})
+    })
 
     // EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
       
-        // Ball travel
+        // BALL TRAVEL - HECTIC MATHS!!
         var dx = Math.cos(r) * 100/200; //<--
         var dy = Math.sin(r) * 100/200; //<--0.5 per 10ms
         // var xn = x0 + v * t * cos(theta)
-        // var xn = x + 100 * 100/200 * Math.cos(r)
-        // var yn = y + 100 * 100/200 * Math.sin(r)
-        var orgx = x;
-        var orgy = y;
+        
+        var orgX = x;
+        var orgY = y;
         var movement = setInterval(function(){
             $("#box").offset({top: y, left: x});
             
             x += dx;
             y += dy;
             if (Math.cos(r) !== 0) {
-                if ( Math.abs((x - orgx) * Math.cos(r)) > 200 ){
+                if ( Math.abs((x - orgX) * Math.cos(r)) > 200 ){
                 clearInterval(movement);
                 } 
             }
-            else if (Math.abs(y - orgy) > 200) {
+            else if (Math.abs(y - orgY) > 200) {
                 clearInterval(movement);
             }
         }, 1)
 
+        // Change image back to regular ball
         $('#box').css('background-image', 'url(images/golf-ball.png)');
+        // Call counter function on mouseUp
         clickCounter()
 
     })  // <---end of mouseUp
     
     // EVENT LISTENER: DIRECTION OF ROTATE
     $(document).mousemove(function(e) {
-      if (dragging) { 
-        // Recalculating the end position after drag
-        var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
-        // r = Prjected angle
-        r = (offset - newOffset); // <---Deleted Degree Conversion from here
+          if (dragging) { 
+            // Recalculating the end position after drag
+            var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
+            // r = Prjected angle
+            r = (offset - newOffset); // <---Deleted Degree Conversion from here
 
-        ball.css('-webkit-transform', 'rotate(' + r + 'rad)');
-        
-      }
+            ball.css('-webkit-transform', 'rotate(' + r + 'rad)');      
+          }
     })
 }());
 
