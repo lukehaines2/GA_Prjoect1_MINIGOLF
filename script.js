@@ -21,10 +21,12 @@ function clickCounter() {
 /*********************************************/
 var ball = $("#box"); //<--- Golf Ball
 var r;
-var counter = 0;
+var counter = -1;
 var hole = $('#example');
 var intro = $('#introScreen');
-
+var powStrong = 250;
+var powMed = 150;
+var powWeak = 50;
 
 //COORDINATES DEFINED TO THE LEFT
 var y = $('#box').offset().top;
@@ -43,7 +45,7 @@ var x = $('#box').offset().left;
     offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
     console.log('mousedown');
 
-    // EVENT LISTENER: ADD TRAJECTORY GUIDE
+    // EVENT LISTENER: ADD ARROW TRAJECTORY GUIDE
     $('#box').css('background-image', 'url(images/arrow2.png)');
     })
 
@@ -107,9 +109,14 @@ var x = $('#box').offset().left;
 //  else if {}
 
 // function collisionHole() {
- 
+ if (clickCounter(2) && ($("#box").offset({top: 315, left: 535}))) {
+    alert('YOU WON MATE!!!!!!!!!!')
+ }; 
+
 // if($('#box').css('left') === '468px') {
-//     // (x > 300) {
+//     (x > 300) {
+
+
 //     $('#box').css("background-image","none")
 //     // .offset.top <= 100) {
     
