@@ -14,13 +14,7 @@ body {
     z-index: 2;
     top: 160px;
     left: 740px;
-
-    /*margin-left: 50%;
-    margin-top: 10%;*/
-    /*display: inline-block;*/
-    /*user-drag: none; 
-    -moz-user-select: none;
-    -webkit-user-drag: none;*/
+    cursor: pointer;
 }
 
 .Main-container {
@@ -53,43 +47,64 @@ div #green-background {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 34px;
   text-align: center;
   color: white;
-  font-family: 'Permanent Marker', cursive;
+  /*font-family: 'Permanent Marker', cursive;*/
+  font-family: 'Sansita One', cursive;
 }
 
 .text {
   display: inline-block;
-  font-size: 20px;
+  font-size: 26px;
   text-align: center;
   color: white;
-  font-family: 'Permanent Marker', cursive;
+  /*font-family: 'Permanent Marker', cursive;*/
+  font-family: 'Sansita One', cursive;
+
 }
 
 #theCount {
   
   color: white;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 30px;
+  /*font-family: 'Permanent Marker', cursive;*/
+  font-family: 'Sansita One', cursive;
+  font-size: 26px;
   user-select: none;
 }
 
 #container {
     /*position: relative;*/ 
-    border: 2px solid red;  
+   /* border: 2px solid red; */ 
+   user-select: none;
+   -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
-div #example {
+#holeDiv {
    position: absolute;
    top: 315px;
    left: 535px; 
    padding: 1px;
    border: 2px solid red;
    user-select: none;
+   -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 footer {
   margin-top: 320px;
   text-align: center;
+}
+
+.introClass {
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  left: 23%;
+  top: 13%;
+  width: 55%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }

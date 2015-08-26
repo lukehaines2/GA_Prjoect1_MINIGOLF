@@ -2,37 +2,29 @@ $(document).ready(function(){
   console.log('ready');
 
 /*********************************************/
-//FUNCTIONS
+                // FUNCTIONS //
 /*********************************************/
-// onCollision = {}
-// alert {}
-// restart game after ball in hole
+
+//Displays the intro with slideup onclick
+$('#introScreen').ready(function(){
+        intro.delay(5000).slideUp('slow');
+});
 
 //CLICK COUNTER ON MOUSE-UP - called within ball
 function clickCounter() {
-    $('#box').mouseup()
     counter++;
-    $("#theCount").text('Shots: ' + counter);
+    $("#theCount").text('Shots : ' + counter);
 };
-/*********************************************/
-//DECALRE THE EVENT LISTENERS
-/*********************************************/
-// Ball goes into hole - hidden and restart
-
 
 /*********************************************/
-//DECALRE THE VARIABLES
+        //DECALRE THE GLOBAL VARIABLES//
 /*********************************************/
 var ball = $("#box"); //<--- Golf Ball
 var r;
 var counter = 0;
 var hole = $('#example');
-// var wall1;
-// var wall2
-// var wall3
-// var wall4
-// var wall5
-// var wall6
+var intro = $('#introScreen');
+
 
 //COORDINATES DEFINED TO THE LEFT
 var y = $('#box').offset().top;
@@ -50,19 +42,19 @@ var x = $('#box').offset().left;
     dragging = true;
     offset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
     console.log('mousedown');
-    //EVENT LISTENER: ADD TRAJECTORY GUIDE
-    // $('#box').addClass('arrow');
+
+    // EVENT LISTENER: ADD TRAJECTORY GUIDE
     $('#box').css('background-image', 'url(images/arrow2.png)');
 })
 
-    //EVENT LISTENER FOR MOUSEUP
+    // EVENT LISTENER FOR MOUSEUP
     $(document).mouseup(function() {
       dragging = false
-      // $('#box').removeClass('arrow');
-        //Ball travel
+      
+        // Ball travel
         var dx = Math.cos(r) * 100/200; //<--
         var dy = Math.sin(r) * 100/200; //<--0.5 per 10ms
-        //var xn = x0 + v * t * cos(theta)
+        // var xn = x0 + v * t * cos(theta)
         // var xn = x + 100 * 100/200 * Math.cos(r)
         // var yn = y + 100 * 100/200 * Math.sin(r)
         var orgx = x;
@@ -80,49 +72,26 @@ var x = $('#box').offset().left;
             else if (Math.abs(y - orgy) > 200) {
                 clearInterval(movement);
             }
-            
         }, 1)
-        $('#box').css('background-image', 'url(images/golf-ball.png)');
-        
-    
-    })
-    
 
-    //EVENT LISTENER: DIRECTION OF ROTATE
+        $('#box').css('background-image', 'url(images/golf-ball.png)');
+        clickCounter()
+
+    })  // <---end of mouseUp
+    
+    // EVENT LISTENER: DIRECTION OF ROTATE
     $(document).mousemove(function(e) {
       if (dragging) { 
-        //Recalculating the end position after drag
+        // Recalculating the end position after drag
         var newOffset = Math.atan2(ball.centerY - e.pageY, e.pageX - ball.centerX);
         // r = Prjected angle
-        r = (offset - newOffset); //<---Deleted Degree Conversion
+        r = (offset - newOffset); // <---Deleted Degree Conversion from here
 
         ball.css('-webkit-transform', 'rotate(' + r + 'rad)');
         
       }
     })
-    }());
-
-
-//     //COLLISON FUNCTIONS FOR HOLE
-//     function collidesWith (element1, element2) {
-//     var Element1 = ball;
-//     var Element2 = hole;
-
-//     Element1.top = $(element1).offset().top;
-//     Element1.left = $(element1).offset().left;
-//     Element1.right = Number($(element1).offset().left) + Number($(element1).width());
-//     Element1.bottom = Number($(element1).offset().top) + Number($(element1).height());
-
-//     Element2.top = $(element2).offset().top;
-//     Element2.left = $(element2).offset().left;
-//     Element2.right = Number($(element2).offset().left) + Number($(element2).width());
-//     Element2.bottom = Number($(element2).offset().top) + Number($(element2).height());
-
-//     if (Element1.right > Element2.left && Element1.left < Element2.right && Element1.top < Element2.bottom && Element1.bottom > Element2.top) {
-        
-//         $('#box').css("background-image","none");
-//     }
-// };
+}());
 
 
 // var colliders_selector = $("#box");
@@ -136,13 +105,16 @@ var x = $('#box').offset().left;
 //     now its player 2's turn.
 //  } 
 //  else if {}
-function collisionHole() {
-if (x > 300) {
-    $('#box').css("background-image","none")
-    // .offset.top <= 100) {
-    return console.log(x)
-}
-};
+
+// function collisionHole() {
+ 
+// if($('#box').css('left') === '468px') {
+//     // (x > 300) {
+//     $('#box').css("background-image","none")
+//     // .offset.top <= 100) {
+    
+//     }
+// };
 
 
-}); //Closing the Doc Ready
+}); // <--- Closing the Doc Ready
