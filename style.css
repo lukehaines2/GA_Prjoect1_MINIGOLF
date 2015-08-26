@@ -15,19 +15,14 @@ body {
     cursor: pointer;
 }
 
-.Main-container {
+/*.Main-container {
   text-align: center;
-  /*margin: 0 auto;*/
-  /*position: relative;*/
   width: 100%;
-  /*display: inline-block;*/
   margin-left: -15%;
-  /*margin-right: 25%;*/
-  /*border: 1px solid red;*/
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-}
+}*/
 
 
 div #green-background {
@@ -45,7 +40,12 @@ h1 {
   font-size: 34px;
   text-align: center;
   color: white;
-  /*font-family: 'Permanent Marker', cursive;*/
+  font-family: 'Sansita One', cursive;
+}
+
+h2 {
+  font-size: 30px;
+  color: white;
   font-family: 'Sansita One', cursive;
 }
 
@@ -54,7 +54,6 @@ h1 {
   font-size: 26px;
   text-align: center;
   color: white;
-  /*font-family: 'Permanent Marker', cursive;*/
   font-family: 'Sansita One', cursive;
 
 }
@@ -62,15 +61,12 @@ h1 {
 #theCount {
   
   color: white;
-  /*font-family: 'Permanent Marker', cursive;*/
   font-family: 'Sansita One', cursive;
   font-size: 26px;
   user-select: none;
 }
 
-#container {
-    /*position: relative;*/ 
-   /* border: 2px solid red; */ 
+#container { 
    user-select: none;
    -moz-user-select: none;
   -webkit-user-select: none;
@@ -109,16 +105,24 @@ footer {
 
 #instructions {
   left: 67%;
-    position: absolute;
-    color: white;
-    top: 18%;
-    font-family: 'Sansita One', cursive;
+  position: absolute;
+  color: white;
+  top: 18%;
+  font-family: 'Sansita One', cursive;
 } 
 
 #powWeak {
-
+  left: 77%;
+  position: absolute;
+  color: white;
+  top: 28%;
+  font-family: 'Sansita One', cursive;
 }
 
 #powStrong {
-
+  left: 67%;
+  position: absolute;
+  color: white;
+  top: 28%;
+  font-family: 'Sansita One', cursive;
 }
