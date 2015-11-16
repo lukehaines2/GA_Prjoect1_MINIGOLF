@@ -1,7 +1,12 @@
-# ![](https://cloud.githubusercontent.com/assets/13486932/11186586/27c8dd6c-8c7a-11e5-8f3d-da5537cd0c68.png) Mini Golf - WDI Project 1
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) WDI Project 1 - Minin Golf
 
-This is our first major project in the **3rd week of WDI**.
+
 <br>
+###Overview
+This is our first major project in the **3rd week of WDI**.
+My game is intended to be a basic version of the well known game of **mini-golf**.
+
+The primary objective is to utilise as many of the skills accuired over the last 2 weeks as possible and to effectively implement them to create this game.
 
 The **technologies** used are primarily:<br>
 
@@ -10,10 +15,6 @@ The **technologies** used are primarily:<br>
 * JavaScript (vanilla)
 * jQuery (Library)
 * External libraries (fonts, additional functionality etc)
-
-My game is intended to be a basic version of the well known game of **mini-golf**.
-
-The primary objective is to utilise as many of the skills accuired over the last 2 weeks as possible and to effectively implement them to create this game.
 
 **Instructions:**
 
