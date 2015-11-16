@@ -3,8 +3,9 @@
 ###Overview
 This was my first major project in the **3rd week of WDI**. My game is a basic version of the well known game of Mini Golf. The primary objective of the project is to utilise as many of the skills accuired over the last 2 weeks as possible and to effectively implement them to create this game.
 
-<br>
+<br><center>
 ![intro-screen](https://cloud.githubusercontent.com/assets/13486932/11187241/a48ef14e-8c7d-11e5-90c6-2a14f4a5e999.png "Intro-Screen")
+</center>
 <br>
 ![Frontpage](https://cloud.githubusercontent.com/assets/13486932/11186901/ec7837ec-8c7b-11e5-83ee-4c43d19808dc.png "Front Page")
 
