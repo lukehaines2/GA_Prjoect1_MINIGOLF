@@ -6,7 +6,9 @@ My game is intended to be a basic version of the well known game of **mini-golf*
 
 The primary objective is to utilise as many of the skills accuired over the last 2 weeks as possible and to effectively implement them to create this game.
 
-The **technologies** used are primarily:<br>
+![Frontpage](https://cloud.githubusercontent.com/assets/13486932/11186901/ec7837ec-8c7b-11e5-83ee-4c43d19808dc.png "Front Page")
+
+###The Build
 
 * HTML 5
 * CSS 3
