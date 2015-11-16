@@ -1,7 +1,4 @@
-
-*******************************************************
-                    		**MINI GOLF**
-*******************************************************
+# ![](https://cloud.githubusercontent.com/assets/13486932/11186586/27c8dd6c-8c7a-11e5-8f3d-da5537cd0c68.png) Mini Golf - WDI Project 1
 
 This is our first major project in the **3rd week of WDI**.
 <br>
