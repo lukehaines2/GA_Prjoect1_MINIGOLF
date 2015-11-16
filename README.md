@@ -1,7 +1,5 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) WDI Project 1 - Minin Golf
 
-
-<br>
 ###Overview
 This is our first major project in the **3rd week of WDI**.
 My game is intended to be a basic version of the well known game of **mini-golf**.
